@@ -27,10 +27,10 @@ void loop() {
   AnimateRows();
   AnimateColumns();
   for(int i = 0; i < 16; i++){
-    BlinkTopRow();
-    BlinkRightCol();
-    BlinkBottomRow();
-    BlinkLeftCol();
+    AnimateTopRowL2R();
+    AnimateRightColT2B();
+    AnimateBottomRowR2L();
+    AnimateLeftColB2T();
   }
 }
 
@@ -41,7 +41,7 @@ void loop() {
  * lc.setColumn(0,columnId,B10000000);
 */
 
-void BlinkTopRow() {
+void AnimateTopRowL2R() {
   for (int i = 0; i < 8; i++) {
     lc.setLed(0, 0, i, true);
     delay(delayMs);
@@ -50,7 +50,7 @@ void BlinkTopRow() {
   lc.clearDisplay(0);
 }
 
-void BlinkRightCol() {
+void AnimateRightColT2B() {
   for (int i = 0; i < 8; i++) {
     lc.setLed(0, i, 7, true);
     delay(delayMs);
@@ -59,7 +59,7 @@ void BlinkRightCol() {
   lc.clearDisplay(0);
 }
 
-void BlinkBottomRow() {
+void AnimateBottomRowR2L() {
   for (int i = 7; i >= 0; i--) {
     lc.setLed(0, 7, i, true);
     delay(delayMs);
@@ -68,7 +68,7 @@ void BlinkBottomRow() {
   lc.clearDisplay(0);
 }
 
-void BlinkLeftCol() {
+void AnimateLeftColB2T() {
   for (int i = 7; i >= 0; i--) {
     lc.setLed(0, i, 0, true);
     delay(delayMs);
